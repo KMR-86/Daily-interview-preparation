@@ -20,7 +20,6 @@ void calculatePhi()
         {
             for(int j=i; j<=M; j+=i)
                 phi[j]-=phi[j]/i;
-                printf("i=%d , phi= %d\n",i,phi[i]);
         }
     }
 }

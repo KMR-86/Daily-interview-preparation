@@ -1,49 +1,44 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<cstdio>
+#define M 5000002
 using namespace std;
-int *primes;
-int *seive(int n){
-    int *prime_bool = new int[n+1];
-    for(int i = 0; i<= n;i++){
-        prime_bool[i]=0;
+long double eular[M];
+long double added_eular_values[M];
+void setting_eular_values(){
+    eular[1]=1;
+    for(int i=2;i<M;i++){
+        eular[i]=i;
     }
-    prime_bool[1]=1;
-    for(int i=2;i<=n;i++){
-        if(prime_bool[i]==0 && (long long)i*i <= n){
-            for(int j=i*i;j<=n;j=j+i){
-                prime_bool[j]=1;
+    for(int i=2;i<M;i++){
+        if(eular[i]==i){
+            for(int j=i;j<M;j=j+i){
+                eular[j]=eular[j]*(1.0-(1.0/i));
             }
         }
     }
-
-    return prime_bool;
-
 }
-int num_of_co_primes(int n){
-
-    float ret=n;
-    for(int i=2;i<=n;i++){
-        if(primes[i]==0 && n%i==0){
-            ret=ret*(1-(1.0/i));
-            //printf("i=%d, ret=%f ",i,ret);
-        }
-
+void setting_added_eular_values(){
+    added_eular_values[1]=1;
+    for(int i=2;i<M;i++){
+        added_eular_values[i]=added_eular_values[i-1]+eular[i]*eular[i];
     }
-    return ret;
 }
+
+
+
 int main(){
-    //freopen("input.txt","r",stdin);
-    //freopen("output.txt","w",stdout);
-    primes=seive(5000000);
+    ///freopen("input.txt","r",stdin);
+    ///freopen("output.txt","w",stdout);
+    setting_eular_values();
+    setting_added_eular_values();
     int a,b,c;
     cin>>c;
     for(int k=0;k<c;k++){
         cin>>a>>b;
-        long long int ans=0;
-        for(int i=a;i<=b;i++){
-            int t=num_of_co_primes(i);
-            ans=ans+t*t;
-        }
-        cout<<"Case "<<k+1<<": "<<ans<<"\n";
+        unsigned long long int ans=0;
+        ans=added_eular_values[b]-added_eular_values[a-1];
+        printf("Case %d: %llu\n",k+1,ans);
+
 
     }
 
