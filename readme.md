@@ -10,3 +10,10 @@ https://www.hackerearth.com/problem/algorithm/connected-components-in-a-graph/su
 
 https://www.hackerearth.com/practice/algorithms/graphs/depth-first-search/practice-problems/algorithm/bishu-and-his-girlfriend/
 
+3. Detect a cycle in a Directed Graph
+
+https://practice.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
+
+4. Detect a cycle in a undirected Graph
+
+https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-graph/1#
