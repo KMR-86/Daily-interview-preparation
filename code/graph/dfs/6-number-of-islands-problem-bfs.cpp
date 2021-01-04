@@ -29,7 +29,7 @@ return 0;
 
 int dirX[] = {0, 0, 1, -1, 1, 1, -1, -1};
 int dirY[] = {1, -1, 0, 0, 1, -1, 1, -1};
-bool visited [102][102] = {0};
+int visited [102][102] = {0};
 void bfs(vector<int> A[], int N, int M, int x, int y){
 
 
@@ -43,7 +43,7 @@ void bfs(vector<int> A[], int N, int M, int x, int y){
         int px=p.first;
         int py=p.second;
         //cout<<"poped from q "<<px<<py<<endl;
-        visited[px][py]=1;
+        visited[px][py]=2;
         for(int i = 0; i < 8; i++){
             int nx = px+dirX[i];
             int ny = py+dirY[i];
@@ -52,6 +52,7 @@ void bfs(vector<int> A[], int N, int M, int x, int y){
                 //cout<<"new points "<<nx<<ny<<endl;
                 if(visited[nx][ny] == 0 && A[nx][ny] == 1){
                     q.push(make_pair(nx,ny));
+                    visited[nx][ny]=1;
                 }
             }
         }

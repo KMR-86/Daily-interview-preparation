@@ -31,3 +31,8 @@ https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1
 
 https://practice.geeksforgeeks.org/problems/topological-sort/1/
 
+
+Dijkstra:
+
+1. https://www.hackerrank.com/challenges/dijkstrashortreach/problem
+
