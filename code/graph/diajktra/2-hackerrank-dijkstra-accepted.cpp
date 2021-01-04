@@ -5,23 +5,13 @@ int g[S][S]={INT_MAX};
 vector<int> dis(S,INT_MAX);
 bool visited[S]={0};
 void addEdge(int u, int v, int w){
-    if(g[u][v]<w){
+    if(g[u][v]>w){
         g[u][v]=w;
         g[v][u]=w;
     }
 
 }
 
-int getEdgeWeight(int u, int v){
-    return g[u][v];
-}
-/*void printGraph(int n){
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j< n; j++){
-            cout<<i<<" "<<g[i][j].second<<" "<<g[i][j].first<<endl;
-        }
-    }
-}*/
 void dijkstra(int s,int n){
     dis[s]=0;
     priority_queue<pair<int, int>, vector<pair<int, int > >, greater<pair<int, int > > > pq;
@@ -31,10 +21,10 @@ void dijkstra(int s,int n){
         int u = p.second;
         visited[u]=1;
         pq.pop();
-        for(int i=0; i<n; i++){
+        for(int i=1; i<=n; i++){
             if (g[u][i] != INT_MAX){
-                int v = g[u][i];
-                int duv = getEdgeWeight(u,v);
+                int v = i;
+                int duv = g[u][v];
                 if(dis[u]+duv < dis[v] && visited[v] == 0){
                     dis[v] = dis[u]+duv;
                     pq.push(make_pair(dis[v],v));
@@ -48,8 +38,8 @@ void dijkstra(int s,int n){
 }
 
 int main(){
-freopen("input.txt","r",stdin);
-freopen("output.txt","w",stdout);
+//freopen("input.txt","r",stdin);
+//freopen("output.txt","w",stdout);
 
 
 int tc;
@@ -57,9 +47,15 @@ cin>>tc;
 while(tc--){
     fill(dis.begin(), dis.end(), INT_MAX);
     memset(visited,0,sizeof(visited[0])*S);
-    memset(g,INT_MAX,sizeof(g[0][0])*S);
+    //memset(g,-1,sizeof(g[0][0])*S*S);
+
     int n,m;
     cin>>n>>m;
+    for(int i=0;i<=n;i++){
+        for(int j=0;j<=n;j++){
+            g[i][j]=INT_MAX;
+        }
+    }
     while(m--){
         int u,v,w;
         cin>>u>>v>>w;
