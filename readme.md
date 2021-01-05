@@ -36,3 +36,7 @@ Dijkstra:
 
 1. https://www.hackerrank.com/challenges/dijkstrashortreach/problem
 
+2. https://practice.geeksforgeeks.org/problems/implementing-dijkstra-set-1-adjacency-matrix/1/
+
+
+
