@@ -1,3 +1,10 @@
+Array Problems:
+
+1. Moore's Voting
+
+https://practice.geeksforgeeks.org/problems/majority-element-1587115620/1/
+
+
 Graph Problems: 
 <b>DFS: </b>
 
